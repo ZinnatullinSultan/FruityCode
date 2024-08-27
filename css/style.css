@@ -1,0 +1,291 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 14px;
+  color: #06080f;
+}
+h1,
+h2,
+h3,
+p,
+button,
+ol,
+ul,
+li,
+a {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+ul {
+  list-style: none;
+}
+button {
+  background: #1c274c;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 16px;
+}
+input {
+  display: block;
+  border-radius: 16px;
+  border: none;
+  padding: 12px;
+  background: #f5f6fa;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+label {
+  font-weight: 400;
+  font-size: 12px;
+  color: rgba(28, 39, 76, 0.5);
+  margin-bottom: 2px;
+  margin-left: 12px;
+}
+input::placeholder {
+  color: rgba(28, 39, 76, 0.5);
+}
+#password-auth {
+  margin-bottom: 2px;
+}
+.container {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.header {
+  border-bottom: 1px solid rgba(28, 39, 76, 0.12);
+  padding: 29px 0;
+  font-style: normal;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.logo__left {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  max-width: 72px;
+}
+.logo__right {
+  font-size: 13px;
+  color: rgba(28, 39, 76, 0.5);
+  max-width: 161px;
+  font-weight: 400;
+}
+.logo__span {
+  font-weight: 700;
+  color: #1c274c;
+}
+.header__btn {
+  padding: 12px 20px;
+  font-size: 15px;
+}
+
+.main-screen {
+  border-bottom: 1px solid rgba(28, 39, 76, 0.12);
+}
+.main-screen__inner {
+  display: flex;
+  justify-content: space-between;
+  max-height: 497px;
+}
+.main-screen__title {
+  font-weight: 500;
+  font-size: 40px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.main-screen__img--left {
+  margin-left: 48px;
+  margin-bottom: 40px;
+}
+.main-screen__img--right {
+  margin-right: 60px;
+}
+.main-screen__btn {
+  display: block;
+  padding: 16px 28px;
+  font-size: 18px;
+}
+.section {
+  padding: 60px 0;
+  border-bottom: 1px solid rgba(28, 39, 76, 0.12);
+}
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.section__title {
+  font-weight: 500;
+  font-size: 28px;
+}
+.section__text {
+  font-weight: 400;
+  color: rgba(28, 39, 76, 0.5);
+}
+.section__main {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+.item {
+  border-radius: 12px;
+  padding: 20px;
+  background: #f5f6fa;
+}
+.item__title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  color: #1c274c;
+  margin-bottom: 16px;
+}
+.item__links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item__link {
+  display: block;
+  font-size: 13px;
+  text-align: right;
+  color: rgba(28, 39, 76, 0.5);
+}
+.footer {
+  border-bottom: none;
+}
+.popup {
+  font-family: 'Roboto', sans-serif;
+  visibility: hidden;
+}
+.popup--active {
+  visibility: visible;
+}
+.popup__overlay {
+  z-index: 1;
+  position: fixed;
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(6, 8, 15, 0.6);
+}
+.popup--active .popup__overlay {
+  opacity: 1;
+  transition: opacity 0.1s linear;
+}
+.popup__card {
+  position: fixed;
+  top: 200px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 400px;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  z-index: 2;
+}
+.popup__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.popup__title {
+  font-weight: 500;
+  font-size: 18px;
+}
+.popup__close {
+  background-color: transparent;
+}
+.popup__line {
+  width: 100%;
+  height: 1px;
+  background: #ebebeb;
+  margin-bottom: 24px;
+}
+.popup__lost-password-block {
+  text-align: right;
+}
+.popup__lost-password {
+  font-weight: 400;
+  font-size: 11px;
+  color: #1c274c;
+  margin-bottom: 24px;
+  background-color: transparent;
+}
+.popup__btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  background-color: #1c274c;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 16px;
+  margin-bottom: 12px;
+}
+.popup__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-weight: 400;
+  font-size: 13px;
+}
+.popup__text {
+  color: rgba(28, 39, 76, 0.5);
+}
+.popup__link {
+  color: #1c274c;
+  background-color: transparent;
+}
+.popup__password {
+  position: relative;
+}
+.popup__password input {
+  padding-right: 35px;
+}
+.popup__preview {
+  position: absolute;
+  background-color: transparent;
+  top: 12px;
+  right: 12px;
+}
+.hidden {
+  display: none;
+}

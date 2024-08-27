@@ -1,0 +1,406 @@
+:root {
+  --body-bg: #f5f6fa
+  --aside-section-settings-bg: #ffffff;
+  --compile-console-inputs-bg: #f5f6fa;
+  --button-bg: #1c274c;
+  --color: #06080f;
+  --logo-color: #1c274c;
+  --active-tree-item: #f5f6fa;
+  --aside-line: #ebebeb;
+  --folder-line: #1c274c;
+  --keyword-color: #7f0a8f;
+  --string-color: #1d9744;
+  --variable-color: #3050c2;
+  --number-color: #f80;
+  --line-code: rgba(28, 39, 76, 0.16);
+  --label-color: rgba(28, 39, 76, 0.5);
+  --filter: none;
+}
+
+body.light-theme {
+  --body-bg: #f5f6fa;
+  --aside-section-settings-bg: #ffffff;
+  --compile-console-inputs-bg: #f5f6fa;
+  --button-bg: #1c274c;
+  --color: #06080f;
+  --logo-color: #1c274c;
+  --active-tree-item: #f5f6fa;
+  --aside-line: #ebebeb;
+  --folder-line: #1c274c;
+  --keyword-color: #7f0a8f;
+  --string-color: #1d9744;
+  --variable-color: #3050c2;
+  --number-color: #f80;
+  --line-code: rgba(28, 39, 76, 0.16);
+  --label-color: rgba(28, 39, 76, 0.5);
+  --filter: none;
+}
+
+body.dark-theme {
+  --body-bg: #111624;
+  --aside-section-settings-bg: #191e30;
+  --compile-console-inputs-bg: #30364c;
+  --button-bg: #30364c;
+  --color: #ffffff;
+  --logo-color: #ffffff;
+  --active-tree-item: #30364c;
+  --aside-line: rgba(235, 235, 235, 0.16);
+  --folder-line: #525b77;
+  --keyword-color: #dda1e5;
+  --string-color: #8ddca6;
+  --variable-color: #98adf6;
+  --number-color: #d79a54;
+  --line-code: rgba(255, 255, 255, 0.16);
+  --label-color: rgba(255, 255, 255, 0.5);
+  --filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(1779%) hue-rotate(189deg) brightness(104%) contrast(101%);;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--color);
+  background-color: var(--body-bg);
+}
+h1,
+h2,
+h3,
+p,
+button,
+ol,
+ul,
+li,
+a {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+ul {
+  list-style: none;
+}
+button {
+  background: var(--button-bg);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 16px;
+}
+label {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--label-color);
+  margin-bottom: 2px;
+  margin-left: 12px;
+}
+input,
+select {
+  display: block;
+  border-radius: 16px;
+  border: none;
+  padding: 12px 12.5px;
+  background: var(--compile-console-inputs-bg);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  width: 100%;
+  margin-bottom: 24px;
+  color: var(--color);
+}
+input::placeholder {
+  color: var(--label-color);
+}
+select {
+  margin-bottom: 20px;
+  appearance: none;
+  outline: none;
+}
+.container {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.aside {
+  min-width: 280px;
+  max-width: 280px;
+  padding: 20px;
+  background-color: var(--aside-section-settings-bg);
+  border-radius: 12px;
+  box-shadow: 6px 6px 28px 0 rgba(28, 39, 76, 0.02);
+  font-family: 'Roboto', sans-serif;
+  height: calc(100vh - 48px);
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.logo {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  max-width: 72px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.logo__span {
+  font-weight: 700;
+  color: var(--logo-color);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.header__left,
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header__right {
+  align-items: start;
+}
+.header__exit {
+  background-color: transparent;
+  font-size: 0;
+}
+.header__user {
+  font-size: 13px;
+}
+.aside__line {
+  width: 100%;
+  height: 1px;
+  background: var(--aside-line);
+  margin-bottom: 20px;
+}
+.aside__search,
+.input__link,
+.aside__select {
+  position: relative;
+}
+.search__input {
+  padding-left: 36px;
+  padding: 13px 12px 13px 36px;
+}
+.search__icon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+.tree__header,
+.tree__folder,
+.tree__file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+.first-lvl__wrapper,
+.second-lvl__wrapper {
+  width: 100%;
+}
+.tree__title {
+  font-weight: 500;
+}
+.tree__folder-title,
+.tree__file-title {
+  font-weight: 400;
+  font-size: 13px;
+}
+.tree__header--left,
+.tree__folder--left,
+.tree__file--left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 176px;
+}
+.compile__open {
+  background-color: transparent;
+  color: var(--color);
+}
+.tree__first-lvl,
+.tree__second-lvl {
+  display: flex;
+  /* align-items: stretch; */
+}
+.tree__folder-line {
+  min-width: 2px;
+  opacity: 0.5;
+  background-color: var(--folder-line);
+  margin: 0 14px;
+  border-radius: 1px;
+}
+.tree__up-arrow,
+.aside__arrow {
+  transition: transform 0.1s linear;
+}
+select:focus + .aside__arrow {
+  transform: rotate(180deg);
+}
+.hidden {
+  display: none;
+}
+.opacity{
+  opacity: 0;
+}
+.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.1s linear;
+}
+.tree__tile-title--results {
+  color: var(--label-color);
+  text-transform: lowercase;
+}
+.aside__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+.link__icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+}
+.aside__btn {
+  width: 100%;
+  padding: 12px;
+}
+.aside__arrow {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+.tree__item--active {
+  border-radius: 4px;
+  background-color: var(--active-tree-item);
+}
+.main {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+}
+.compile{
+  width: 100%;
+}
+.compile--small{
+  height: 470px !important;
+}
+.compile__code, .compile__console{
+  border-radius: 12px;
+  background-color: var(--aside-section-settings-bg);
+  padding: 20px;
+  box-shadow: 6px 6px 28px 0 rgba(28, 39, 76, 0.02);
+  width: 100%;
+}
+.compile__console{
+  margin-top: 8px
+}
+.compile__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+.compile__title{
+  font-weight: 500;
+  font-size: 14px;
+}
+.compile__clear {
+  background-color: transparent;
+  font-size: 12px;
+  color: var(--label-color);
+}
+.compile__body{
+  height: 100%;
+}
+.compile-console__body{
+  background-color: var(--compile-console-inputs-bg);
+  padding: 16px;
+  border-radius: 8px;
+  min-height: 252px;
+}
+.settings__btn {
+  padding: 20px;
+  background-color: var(--aside-section-settings-bg);
+  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  box-shadow: 6px 6px 28px 0 rgba(28, 39, 76, 0.02);
+}
+.CodeMirror{
+  padding: 16px;
+  background-color: var(--compile-console-inputs-bg);
+  color: var(--color);
+  border-radius: 8px;
+  font-family: 'IBM Plex Mono', monospace ;
+  font-weight: 400 ;
+  font-style: normal ;
+  font-size: 14px ;
+  height: 800px;
+}
+.CodeMirror-gutters {
+  left: 30px !important;
+  border-right: 1px solid var(--line-code) !important;
+  background-color: transparent;
+  /* min-height: 95% !important; */
+}
+.CodeMirror-gutter {
+  display: none;
+}
+.CodeMirror-linenumber{
+  left: -5px !important;
+}
+.CodeMirror-line{
+  padding-left: 46px !important;
+}
+.quick-action-compose-trigger{
+  display: none ;
+}
+/* Ключевые слова (например, if, else, def и т.д.) */
+.cm-keyword {
+  color: var(--keyword-color) !important; 
+  font-weight: 600;
+}
+/* Строки */
+.cm-string {
+  color: var(--string-color) !important;
+}
+/* Комментарии */
+.cm-comment {
+  color: #969696 !important;
+}
+/* Числа */
+.cm-number {
+  color: var(--number-color) !important;
+}
+/* Переменные*/
+.cm-variable, .cm-def, .cm-builtin {
+  color: var(--variable-color) !important;
+}
+.icon, .tree__icon{
+  filter: var(--filter);
+}

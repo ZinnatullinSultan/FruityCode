@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet" />
+
+    <!-- Подключение CSS для CodeMirror -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css" />
+
+    <link rel="stylesheet" href="css/compile.css" />
+  </head>
+  <body class="light-theme">
+    <main class="main">
+      <aside class="aside">
+        <div class="aside__top">
+          <header class="aside__header header">
+            <div class="header__left">
+              <a href="index.html" class="header__back"
+                ><img class="icon" src="img/left-arrow.svg" alt=""
+              /></a>
+              <p class="logo"><span class="logo__span">Fruity </span>Code</p>
+            </div>
+            <div class="header__right">
+              <p class="header__user">UserName</p>
+              <button class="header__exit">
+                <img class="icon" src="img/quite.svg" alt="" />
+              </button>
+            </div>
+          </header>
+          <div class="aside__line"></div>
+          <div class="aside__search search">
+            <input
+              class="search__input"
+              type="text"
+              placeholder="Поиск по файлам" />
+            <img class="search__icon icon" src="img/search.svg" alt="" />
+          </div>
+          <div class="aside__tree tree">
+            <div class="tree__header tree__item">
+              <div class="tree__header--left">
+                <img src="img/folder.svg" alt="" class="tree__icon " />
+                <h2 class="tree__title">Structure Tree</h2>
+              </div>
+              <img class="tree__up-arrow icon" src="img/up-arrow.svg" alt="" />
+            </div>
+            <div class="tree__first-lvl">
+              <div class="tree__folder-line"></div>
+              <div class="first-lvl__wrapper">
+                <div class="tree__folder tree__folder--first tree__item">
+                  <div class="tree__folder--left">
+                    <img src="img/folder.svg" alt="" class="tree__icon" />
+                    <h2 class="tree__folder-title">Folder name</h2>
+                  </div>
+                  <img class="tree__up-arrow icon" src="img/up-arrow.svg" alt="" />
+                </div>
+                <div class="tree__folder-line"></div>
+                <div class="tree__second-lvl">
+                  <div class="tree__folder-line"></div>
+                  <div class="second-lvl__wrapper">
+                    <div class="tree__folder tree__item">
+                      <div class="tree__folder--left">
+                        <img src="img/folder.svg" alt="" class="tree__icon" />
+                        <h2 class="tree__folder-title">Folder name</h2>
+                      </div>
+                      <!-- <img src="img/up-arrow.svg" alt=""> -->
+                    </div>
+                    <div class="tree__file tree__item">
+                      <button class="tree__file--left compile__open">
+                        <img
+                          src="img/file-compile.svg"
+                          alt=""
+                          class="tree__icon" />
+                        <h2 class="tree__file-title">Compile file</h2>
+                      </button>
+                    </div>
+                    <div class="tree__file tree__item">
+                      <div class="tree__file--left compile-res__open">
+                        <img
+                          src="img/file-compile-res.svg"
+                          alt=""
+                          class="tree__icon--res" />
+                        <h2 class="tree__file-title">
+                          Compile file<span class="tree__tile-title--results">
+                            (results)</span
+                          >
+                        </h2>
+                      </div>
+                    </div>
+                    <div class="tree__file tree__item">
+                      <div class="tree__file--left">
+                        <img
+                          src="img/file-question.svg"
+                          alt=""
+                          class="tree__icon" />
+                        <h2 class="tree__file-title">Test file</h2>
+                      </div>
+                    </div>
+                    <div class="tree__file tree__item">
+                      <div class="tree__file--left">
+                        <img
+                          src="img/file-question-res.svg"
+                          alt=""
+                          class="tree__icon--res" />
+                        <h2 class="tree__file-title">
+                          Test file<span class="tree__tile-title--results">
+                            (results)</span
+                          >
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="aside__bottom">
+          <label for="folder">Расположение:</label>
+          <div class="aside__select">
+            <select name="folder" id="folder">
+              <option value="Structure Tree">
+                Structure Tree / Folder Name
+              </option>
+              <option value="Structure Tree">
+                Structure Tree / Folder Name
+              </option>
+            </select>
+            <img class="aside__arrow icon" src="img/up-arrow.svg" alt="" />
+          </div>
+          <label for="lang">Язык программирования:</label>
+          <div class="aside__select">
+            <select name="lang" id="lang">
+              <option value="Python">Python</option>
+              <option value="Python">Python</option>
+            </select>
+            <img class="aside__arrow icon" src="img/up-arrow.svg" alt="" />
+          </div>
+          <label for="link">Уникальная ссылка:</label>
+          <div class="input__link">
+            <input
+              type="text"
+              name="link"
+              id="link"
+              value="fruitycode.com/asd25sG2" />
+            <button class="link__icon">
+              <img class="icon" src="img/hyperlink.svg" alt="" />
+            </button>
+          </div>
+          <button class="aside__btn">Сохранить изменения</button>
+        </div>
+      </aside>
+      <section class="compile opacity">
+        <div class="compile__code">
+          <div class="compile__header">
+            <h2 class="compile__title">Компилятор</h2>
+            <button class="compile__clear">Очистить</button>
+          </div>
+            <textarea id="code-editor" name="code" rows="10" cols="80">
+import time
+start_time = time.time()
+def fun():
+  a = 2
+  b = 3
+  c = a+b
+end_time = time.time()
+fun()
+timetaken = end_time - start_time
+print("Your program takes: ", timetaken) # 0.0345
+            </textarea>
+        </div>
+        <div class="compile__console hidden">
+          <div class="compile__header">
+            <h2 class="compile__title">Консоль</h2>
+          </div>
+          <div class="compile-console__body">
+            Your program takes: 0.0345
+          </div>
+        </div>
+      </section>
+      <button class="settings__btn">
+        <img class="icon" src="img/setting.svg" alt="" />
+      </button>
+    </main>
+
+    <!-- Подключение основной библиотеки CodeMirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+
+    <!-- Подключение модуля для подсветки синтаксиса Python -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+
+    <!-- Подключение модуля для отображения нумерации строк -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closetag.min.js"></script>
+
+    <script src="js/compile.js"></script>
+  </body>
+</html>
