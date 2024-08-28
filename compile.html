@@ -10,10 +10,12 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet" />
 
-    <!-- Подключение CSS для CodeMirror -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css" />
+      href="libs/codemirror-5.65.17/lib/codemirror.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css" /> -->
 
     <link rel="stylesheet" href="css/compile.css" />
   </head>
@@ -123,6 +125,8 @@
           </div>
         </div>
         <div class="aside__bottom">
+          <button class="create"><img class="create__plus" src="img/plus.svg" alt="">Добавить элемент</button>
+          <button class="delete"><img class="delete__minus" src="img/trash.svg" alt="">Удалить элемент</button>
           <label for="folder">Расположение:</label>
           <div class="aside__select">
             <select name="folder" id="folder">
@@ -189,15 +193,35 @@ print("Your program takes: ", timetaken) # 0.0345
         <img class="icon" src="img/setting.svg" alt="" />
       </button>
     </main>
+    <!-- Контекстное меню -->
+    <div class="context-menu">
+      <div class="context-menu__header">
+        <h3 class="context-menu__title">Добавление элемента</h3>
+        <button class="context-menu__close"><img src="img/close.svg" alt=""></button>
+      </div>
+      <div class="context-menu__line"></div>
+      <div class="context-menu__body">
+        <button class="context-menu__item">
+          <img src="img/folder.svg" alt="" class="context-menu__icon">
+          <p class="context-menu__text">Папка</p>
+        </button>
+        <button class="context-menu__item">
+          <img src="img/file-compile.svg" alt="" class="context-menu__icon">
+          <p class="context-menu__text">Компилятор</p>
+        </button>
+        <button class="context-menu__item">
+          <img src="img/file-question.svg" alt="" class="context-menu__icon">
+          <p class="context-menu__text">Тест</p>
+        </button>
+      </div>
+      <p class="context-menu__footer">Выберите тип элемента, который вы хотите добавить</p>
+    </div>
 
     <!-- Подключение основной библиотеки CodeMirror -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="libs/codemirror-5.65.17/lib/codemirror.js"></script>
 
     <!-- Подключение модуля для подсветки синтаксиса Python -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
-
-    <!-- Подключение модуля для отображения нумерации строк -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closetag.min.js"></script>
+    <script src="libs/codemirror-5.65.17/mode/python/python.js"></script>
 
     <script src="js/compile.js"></script>
   </body>

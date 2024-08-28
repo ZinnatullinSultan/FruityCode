@@ -40,6 +40,7 @@ var editor = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
   lineNumbers: true,
   mode: 'python',
   theme: 'default',
+  lineNumbers: true,
 });
 
 compile.classList.add('hidden');
@@ -86,3 +87,34 @@ changeTheme.addEventListener('click', function () {
     treeIconRes[1].setAttribute('src', 'img/file-question-res.svg');
   }
 });
+
+const contextMenu = document.querySelector('.context-menu');
+const contextTarget = document.querySelector('.create');
+
+// Функция для показа/скрытия контекстного меню
+function toggleContextMenu(event) {
+    if (event.button === 0) {
+        if (contextMenu.style.display === 'block') {
+            hideContextMenu();
+        } else {
+            showContextMenu(event);
+        }
+    }
+}
+
+function showContextMenu(event) {
+    // Устанавливаем позицию контекстного меню
+    contextMenu.style.top = `${event.clientY}px`;
+    contextMenu.style.left = `${event.clientX}px`;
+
+    contextMenu.style.display = 'block';
+    event.preventDefault();
+}
+
+function hideContextMenu() {
+    contextMenu.style.display = 'none';
+}
+contextTarget.addEventListener('click', toggleContextMenu);
+
+const contextMenuClose = document.querySelector('.context-menu__close');
+contextMenuClose.addEventListener('click', hideContextMenu);

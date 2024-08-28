@@ -404,3 +404,76 @@ select:focus + .aside__arrow {
 .icon, .tree__icon{
   filter: var(--filter);
 }
+.create, .delete{
+  display: block;
+  margin-bottom: 20px;
+  background-color: transparent;
+  color: #1c274c;
+  font-size: 13px;
+  height: 16px;
+  font-weight: 500;
+}
+.delete, .context-menu__item--delete{
+  color: #EB3B3B;
+}
+.create__plus, .delete__minus{
+  vertical-align: text-top;
+  margin-right: 4px;
+}
+
+/* Скрытое по умолчанию контекстное меню */
+.context-menu {
+  display: none;
+  position: absolute;
+  z-index: 5;
+  box-shadow: 0 0 60px 0 rgba(28, 39, 76, 0.06);
+  font-family: 'Roboto', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 400px;
+  height: 256px;
+}
+.context-menu__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.context-menu__title{
+  font-weight: 500;
+  font-size: 18px;
+}
+.context-menu__close {
+  background-color: transparent;
+}
+.context-menu__line {
+  width: 100%;
+  height: 1px;
+  background: #ebebeb;
+  margin-bottom: 24px;
+}
+.context-menu__body{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.context-menu__item{
+  border-radius: 8px;
+  padding: 8px;
+  width: 112px;
+  height: 100px;
+  background: #f5f6fa;
+  text-align: center;
+  color: #06080f;
+}
+.context-menu__icon{
+  width: 60px;
+  height: 60px;
+}
+.context-menu__footer{
+  font-size: 13px;
+  color: rgba(28, 39, 76, 0.5);
+  text-align: center;
+}
