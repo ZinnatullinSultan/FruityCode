@@ -408,7 +408,7 @@ select:focus + .aside__arrow {
   display: block;
   margin-bottom: 20px;
   background-color: transparent;
-  color: #1c274c;
+  color: var(--logo-color);
   font-size: 13px;
   height: 16px;
   font-weight: 500;
@@ -419,6 +419,9 @@ select:focus + .aside__arrow {
 .create__plus, .delete__minus{
   vertical-align: text-top;
   margin-right: 4px;
+}
+.create__plus{
+  filter: var(--filter);
 }
 
 /* Скрытое по умолчанию контекстное меню */
@@ -443,6 +446,7 @@ select:focus + .aside__arrow {
 .context-menu__title{
   font-weight: 500;
   font-size: 18px;
+  color: #06080f;
 }
 .context-menu__close {
   background-color: transparent;
